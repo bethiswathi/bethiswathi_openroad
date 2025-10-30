@@ -110,9 +110,24 @@ Yosys  →  OpenROAD  →  Magic  →  Netgen  →  KLayout
 Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 
 
-
 ## Overview of RTL to GDS Flow
 
+<img width="940" height="678" alt="image" src="https://github.com/user-attachments/assets/4a9c744d-402d-455e-90c3-e26290bffb93" /></br>
+
+
+| **Step**   | **Stage**                                       | **Description**                                                                                                                                                                                                                     |
+| ---------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1️⃣**    | **Architectural Design**                        | Define system specifications and microarchitecture based on physical and performance constraints.                                                                                                                                   |
+| **2️⃣**    | **RTL Design / Behavioral Modeling**            | Describe circuit behavior using HDL (Verilog/VHDL). Includes: <br>• **RTL Design:** Uses registers, combinational logic, and modules (IPs). <br>• **Behavioral Modeling:** Describes system behavior at a higher abstraction level. |
+| **3️⃣**    | **RTL Verification**                            | Functionally verify that the RTL meets design specifications using simulation and testbenches.                                                                                                                                      |
+| **4️⃣**    | **DFT (Design for Test) Insertion**             | Insert test structures (like scan chains) to allow post-fabrication testing.                                                                                                                                                        |
+| **5️⃣**    | **Logic Synthesis**                             | Convert RTL to a gate-level netlist using EDA tools. <br>• **GTECH Mapping:** Map HDL to generic gates and optimize logic. <br>• **Technology Mapping:** Map optimized netlist to standard cells from the PDK.                      |
+| **6️⃣**    | **Standard Cells**                              | Pre-designed logic blocks (NAND, NOR, FFs, etc.) with defined physical and timing characteristics.                                                                                                                                  |
+| **7️⃣**    | **Post-Synthesis STA (Static Timing Analysis)** | Verify timing (setup and hold) to ensure correct operation at the desired frequency.                                                                                                                                                |
+| **8️⃣**    | **Floorplanning**                               | Define chip layout, macro placement, and power distribution network (PDN). Create power rings and straps to reduce IR drop and EM issues.                                                                                           |
+| **9️⃣**    | **Placement**                                   | Position standard cells on the floorplan. <br>• **Global Placement:** Optimizes overall position. <br>• **Detailed Placement:** Legalizes positions (no overlaps).                                                                  |
+| **🔟**     | **CTS (Clock Tree Synthesis)**                  | Build a clock network (often H-tree) to deliver low-skew clock signals to all sequential elements.                                                                                                                                  |
+| **1️⃣1️⃣** | **Routing**                                     | Connect all cells, macros, and pins using metal layers while ensuring DRC compliance.                                                                                                                                               |
 
 
 
