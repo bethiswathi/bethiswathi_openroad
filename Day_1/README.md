@@ -55,9 +55,9 @@
 
 ### ⚙️ Purpose of PDK Data
 
-- To ensure your design follows the physical, electrical, and timing rules of a given process.
-- To let EDA tools (like Magic, OpenROAD, Yosys) accurately simulate, verify, and lay out the chip.
-- To provide models for transistors, interconnects, and devices used in circuit design.
+- To ensure your design **follows the physical, electrical, and timing rules** of a given process.
+- To let **EDA tools** (like Magic, OpenROAD, Yosys) accurately **simulate, verify, and layout** the chip.
+- To provide **models** for transistors, interconnects, and devices used in circuit design.
 
 ### 🧠 Why PDK Data Is Important
 | **Reason**            | **Explanation**                                               |
@@ -82,16 +82,14 @@
 
 ## 🧩 What Are EDA Tools?
 
-- EDA (Electronic Design Automation) tools are software programs used by engineers to design, verify, and simulate electronic systems such as ICs (Integrated Circuits), ASICs, and FPGAs.
+- **EDA (Electronic Design Automation)** tools are **software programs** used by engineers to **design, verify, and simulate** electronic systems such as **ICs (Integrated Circuits), ASICs**, and **FPGAs**.
 - They automate complex design steps that would be impossible or very time-consuming to do manually.
 
 ## ⚙️ Purpose of EDA Tools
 
-To design digital and analog circuits efficiently.
-
-To simulate and verify functionality, timing, and layout.
-
-To prepare the final GDSII file for fabrication.
+- To design **digital and analog** circuits efficiently.
+- To simulate and verify **functionality, timing, and layout**.
+- To prepare the final **GDSII** file for fabrication.
 
 ### 🧠 Why EDA Tools Are Important
 | **Reason**       | **Explanation**                                     |
