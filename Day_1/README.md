@@ -20,8 +20,14 @@
 
 ### 🧩 What Are RTL IPs?
 
-- RTL IPs (Register Transfer Level Intellectual Properties) are pre-designed and pre-verified digital logic blocks, described at the RTL (Register Transfer Level) using Verilog or VHDL.
-- They can be reused in different chip designs to save development time and effort.
+- **RTL IPs (Register Transfer Level Intellectual Properties)** are **pre-designed and pre-verified digital logic blocks**, described at the **RTL (Register Transfer Level)** using **Verilog** or **VHDL**.
+- They can be **reused** in different chip designs to save development time and effort.
+
+### ⚙️ Purpose of RTL IPs
+
+- To **speed up chip design** by reusing verified modules instead of creating everything from scratch.
+- To **ensure reliability**, since verified IPs have already been tested.
+- To **standardize** digital designs using reusable building blocks.
 
 ### 🧠 Benefits of Using RTL IPs
 | **Benefit**                | **Explanation**                                                                       |
@@ -43,7 +49,7 @@
 
 ### 🧩 What Is PDK Data?
 
-- PDK (Process Design Kit) data refers to all the information, files, and models provided by a semiconductor foundry that describe how to design and fabricate ICs (chips) using their specific process technology (like 130 nm, 65 nm, etc.).
+- **PDK (Process Design Kit) data** refers to all the **information, files, and models** provided by a **semiconductor foundry** that describe **how to design and fabricate ICs (chips)** using their specific process technology (like 130 nm, 65 nm, etc.).
 - It acts as a bridge between the design team (who make the chip layout) and the foundry (who manufacture the chip).
 
 
