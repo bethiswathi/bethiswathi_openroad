@@ -145,6 +145,7 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 1. Synthesis
 - **yosys/abc**: Perform RTL synthesis and technology mapping.
 - **OpenSTA**: Performs static timing analysis on the resulting netlist to generate timing reports.
+- **Fault**: Scan-chain insertion used for testing post fabrication. Supports ATPG and test patterns compaction
 
 2. Floorplanning
 - **init_fp**: Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing).
@@ -208,17 +209,38 @@ To delete all generated runs under all designs: `make clean_runs`
 - **Config.tcl Files**: These are design-specific configuration files used by OpenLANE. They include switches and settings that tailor the ASIC design flow for your specific project.
 
 
+## Inception of Open Source EDA
+
+### Skywater PDK Files
+- The Skywater PDK files we are working with are described under $PDK_ROOT. There are three subdirectories needed.
 
 
 
+1. Skywater-pdk – Contains all the foundry provided PDK related files
+2. Open_pdks – Contains scripts that are used to bridge the gap between closed-source and open-source PDK to EDA tool compatibility
+3. Sky130A – Open-source-compatible PDK files for Skywater, designed to work with open-source EDA tools for ASIC development without proprietary dependencies.
+
+
+### Pre-requisites
+- First make sure you have the basic tools and packages
+```
+sudo apt update
+sudo apt install -y build-essential python3 python3-venv python3-pip \
+     git wget curl make automake gcc g++ bison flex libreadline-dev \
+     gawk tcl-dev libffi-dev graphviz xdot pkg-config libboost-system-dev \
+     libboost-python-dev libboost-filesystem-dev zlib1g-dev
+
+```
+### Install Docker (recommended way to run OpenLane)
+OpenLane uses Docker to ensure a consistent environment
 
 
 
+## Invoking OpenLane
 
 
 
-
-
-
-
+- /flow.tcl is the script which runs the OpenLANE flow
+- OpenLANE can be run interactively or in autonomous mode
+- To run interactively, use the -interactive option with the ./flow.tcl script
 
