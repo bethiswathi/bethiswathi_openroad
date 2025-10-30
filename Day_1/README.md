@@ -130,9 +130,16 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 
 - OpenLane is an automated, open-source RTL-to-GDSII flow for digital ASIC (chip) design.
 - It integrates several open-source EDA tools and PDKs (like SkyWater SKY130) to generate a manufacturable layout (GDSII) from Verilog RTL.
-
 - It’s maintained by Efabless and The OpenROAD Project.
-  
+
+## ⚙️ Main Goal of OpenLane
+- Produce a **clean GDSII** with **no human intervention**.
+- Clean means
+   - No DRC violations
+   - No LVS violations
+
+## 🧩 OpenLane ASIC Flow
+
 <img width="940" height="497" alt="image" src="https://github.com/user-attachments/assets/2fb042cf-b8af-42a1-b17c-40e2aa3e1abb" /></br>
 
 1. Synthesis
@@ -168,7 +175,7 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 - **Netgen**: Performs LVS Checks.
 - **CVC**: Performs Circuit Validity Checks.
 
-## OpenLane Setup Environment
+## OpenLane Directory Structure
 ```
 <design_name>
 ├── config.json/config.tcl
