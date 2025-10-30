@@ -112,8 +112,6 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 
 ## Overview of RTL to GDS Flow
 
-
-
 | **Step**   | **Stage**                                       | **Description**                                                                                                                                                                                                                     |
 | ---------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **1️⃣**    | **Architectural Design**                        | Define system specifications and microarchitecture based on physical and performance constraints.                                                                                                                                   |
@@ -126,7 +124,7 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 | **8️⃣**    | **Floorplanning**                               | Define chip layout, macro placement, and power distribution network (PDN). Create power rings and straps to reduce IR drop and EM issues.                                                                                           |
 | **9️⃣**    | **Placement**                                   | Position standard cells on the floorplan. <br>• **Global Placement:** Optimizes overall position. <br>• **Detailed Placement:** Legalizes positions (no overlaps).                                                                  |
 | **🔟**     | **CTS (Clock Tree Synthesis)**                  | Build a clock network (often H-tree) to deliver low-skew clock signals to all sequential elements.                                                                                                                                  |
-| **1️⃣1️⃣** | **Routing**                                     | Connect all cells, macros, and pins using metal layers while ensuring DRC compliance.            </br>                                                                                                                                   |
+| **1️⃣1️⃣** | **Routing**                                     | Connect all cells, macros, and pins using metal layers while ensuring DRC compliance.            </br> </br>                                                                                                                                 |
 
 ## 🧠 What is OpenLane?
 
@@ -170,7 +168,37 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 - **Netgen**: Performs LVS Checks.
 - **CVC**: Performs Circuit Validity Checks.
 
+## OpenLane Setup Environment
+```
+<design_name>
+├── config.json/config.tcl
+├── runs
+│   ├── <tag>
+│   │   ├── config.tcl
+│   │   ├── {logs, reports, tmp}
+│   │   │   ├── cts
+│   │   │   ├── signoff
+│   │   │   ├── floorplan
+│   │   │   ├── placement
+│   │   │   ├── routing
+│   │   │   └── synthesis
+│   │   ├── results
+│   │   │   ├── final
+│   │   │   ├── cts
+│   │   │   ├── signoff
+│   │   │   ├── floorplan
+│   │   │   ├── placement
+│   │   │   ├── routing
+│   │   │   └── synthesis
+To delete all generated runs under all designs: `make clean_runs`
+```
 
+## Design Folder Hierarchy :
+- In each design hierarchy, you will find two distinct components:
+
+- **Src Folder**: This directory contains Verilog files (.v) and SDC (Synopsys Design Constraints) files (.sdc). Verilog files describe the digital logic of your design, while SDC files specify timing constraints for your design.
+
+- **Config.tcl Files**: These are design-specific configuration files used by OpenLANE. They include switches and settings that tailor the ASIC design flow for your specific project.
 
 
 
