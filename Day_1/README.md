@@ -112,7 +112,6 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 
 ## Overview of RTL to GDS Flow
 
-<img width="940" height="678" alt="image" src="https://github.com/user-attachments/assets/4a9c744d-402d-455e-90c3-e26290bffb93" /></br>
 
 
 | **Step**   | **Stage**                                       | **Description**                                                                                                                                                                                                                     |
@@ -127,15 +126,49 @@ Used with SkyWater 130nm PDK, it enables fully open-source ASIC design.
 | **8️⃣**    | **Floorplanning**                               | Define chip layout, macro placement, and power distribution network (PDN). Create power rings and straps to reduce IR drop and EM issues.                                                                                           |
 | **9️⃣**    | **Placement**                                   | Position standard cells on the floorplan. <br>• **Global Placement:** Optimizes overall position. <br>• **Detailed Placement:** Legalizes positions (no overlaps).                                                                  |
 | **🔟**     | **CTS (Clock Tree Synthesis)**                  | Build a clock network (often H-tree) to deliver low-skew clock signals to all sequential elements.                                                                                                                                  |
-| **1️⃣1️⃣** | **Routing**                                     | Connect all cells, macros, and pins using metal layers while ensuring DRC compliance.                                                                                                                                               |
+| **1️⃣1️⃣** | **Routing**                                     | Connect all cells, macros, and pins using metal layers while ensuring DRC compliance.            </br>                                                                                                                                   |
 
+## 🧠 What is OpenLane?
 
+- OpenLane is an automated, open-source RTL-to-GDSII flow for digital ASIC (chip) design.
+- It integrates several open-source EDA tools and PDKs (like SkyWater SKY130) to generate a manufacturable layout (GDSII) from Verilog RTL.
 
+- It’s maintained by Efabless and The OpenROAD Project.
+  
+<img width="940" height="497" alt="image" src="https://github.com/user-attachments/assets/2fb042cf-b8af-42a1-b17c-40e2aa3e1abb" /></br>
 
+1. Synthesis
+- **yosys/abc**: Perform RTL synthesis and technology mapping.
+- **OpenSTA**: Performs static timing analysis on the resulting netlist to generate timing reports.
 
+2. Floorplanning
+- **init_fp**: Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing).
+- **ioplacer**: Places the macro input and output ports.
+- **pdngen**: Generates the power distribution network.
+- **tapcell**: Inserts welltap and decap cells in the floorplan.
 
+3. Placement
+- **RePLace**: Performs global placement.
+- **Resizer**: Performs optional optimizations on the design.
+- **OpenDP**: Performs detailed placement to legalize the globally placed components
 
+4. Clock Tree Synthesis (CTS)
+- **TritonCTS**: Synthesizes the clock distribution network (the clock tree).
 
+5. Routing
+- **FastRoute**: Performs global routing to generate a guide file for the detailed router.
+- **TritonRoute**: Performs detailed routing.
+- **OpenRCX**: Performs SPEF extraction.
+
+6. Tapeout
+- **Magic**: Streams out the final GDSII layout file from the routed def.
+- **KLayout**: Streams out the final GDSII layout file from the routed def as a backup.
+
+7. Signoff
+- **Magic**: Performs DRC Checks & Antenna Checks.
+- **KLayout**: Performs DRC Checks.
+- **Netgen**: Performs LVS Checks.
+- **CVC**: Performs Circuit Validity Checks.
 
 
 
