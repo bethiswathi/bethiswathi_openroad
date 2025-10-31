@@ -244,3 +244,11 @@ OpenLane uses Docker to ensure a consistent environment
 - OpenLANE can be run interactively or in autonomous mode
 - To run interactively, use the -interactive option with the ./flow.tcl script
 
+
+
+
+
+
+
+
+
